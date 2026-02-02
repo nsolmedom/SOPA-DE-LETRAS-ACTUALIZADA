@@ -1,0 +1,91 @@
+/* Loading Modal Styles */
+.loading-content {
+    background: var(--bg-cream);
+    padding: 3rem 2rem;
+    border: 8px solid var(--brown-dark);
+    border-radius: 40px;
+    text-align: center;
+    color: var(--brown-dark);
+    box-shadow: 0 10px 0 var(--brown-dark);
+    min-width: 350px;
+}
+
+.loading-spinner {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.loading-content h2 {
+    font-family: var(--font-pixel);
+    font-size: 1rem;
+    color: var(--brown-dark);
+    background: none;
+    padding: 0;
+    margin: 1rem 0;
+    box-shadow: none;
+}
+
+.loading-content p {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--brown-dark);
+    margin: 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background: var(--brown-dark);
+    border: 3px solid var(--brown-dark);
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.4s ease-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+    .loading-content {
+        padding: 2rem 1rem;
+        border: 4px solid var(--brown-dark);
+        box-shadow: 0 6px 0 var(--brown-dark);
+        min-width: 80vw;
+        max-width: 90vw;
+    }
+
+    .loading-spinner {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .loading-content h2 {
+        font-size: 0.8rem;
+        margin: 0.8rem 0;
+    }
+
+    .loading-content p {
+        font-size: 1rem;
+    }
+
+    .progress-container {
+        height: 16px;
+        border: 2px solid var(--brown-dark);
+        margin-top: 15px;
+    }
+}

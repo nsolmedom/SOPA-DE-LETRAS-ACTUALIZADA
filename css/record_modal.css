@@ -1,0 +1,396 @@
+/* ===================================
+   RECORD MODAL - ESTILO ARCADE
+   =================================== */
+
+.record-modal-content {
+    background: var(--bg-cream);
+    padding: 3rem 2rem;
+    border: 8px solid var(--brown-dark);
+    border-radius: 40px;
+    box-shadow: 0 10px 0 var(--brown-dark);
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    pointer-events: auto;
+    animation: recordModalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Banner Superior */
+.record-banner {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border: 6px solid var(--brown-dark);
+    border-radius: 20px;
+    box-shadow: 0 6px 0 var(--brown-dark);
+}
+
+.record-title {
+    font-family: var(--font-pixel);
+    font-size: 2rem;
+    color: var(--brown-dark);
+    margin: 0;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    background: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.record-subtitle {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--brown-dark);
+    margin: 0.5rem 0 0 0;
+}
+
+/* Selector de Letras */
+.letter-selector-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid var(--brown-dark);
+    border-radius: 15px;
+}
+
+.letter-slots {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 90px;
+}
+
+.letter-slot {
+    width: 50px;
+    height: 60px;
+    background: white;
+    border: 4px solid var(--brown-dark);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 0 var(--brown-dark);
+    transition: all 0.2s ease;
+}
+
+.letter-slot.active {
+    background: #ffd700;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 0 var(--brown-dark), 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 0 var(--brown-dark), 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 8px 0 var(--brown-dark), 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.letter-display {
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    color: var(--brown-dark);
+    font-weight: bold;
+}
+
+/* Controles de Flechas */
+.arrow-controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: 4px solid var(--brown-dark);
+    border-radius: 12px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--brown-dark);
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    padding: 0;
+    line-height: 1;
+}
+
+.arrow-btn:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 var(--brown-dark);
+}
+
+.arrow-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--brown-dark);
+}
+
+.arrow-btn.arrow-up,
+.arrow-btn.arrow-down,
+.arrow-btn.arrow-left,
+.arrow-btn.arrow-right {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+}
+
+/* Información del Récord Batido */
+.record-info {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 3px solid var(--brown-dark);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.replaced-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.replaced-text {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    color: var(--brown-dark);
+    margin: 0;
+}
+
+.replaced-player {
+    font-family: var(--font-pixel);
+    font-size: 1.3rem;
+    color: #ff6b6b;
+    margin: 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.replaced-position {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--brown-dark);
+    font-weight: bold;
+    margin: 0;
+}
+
+.new-record-text {
+    font-family: var(--font-main);
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Botones de Acción */
+.record-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 3px dashed var(--brown-dark);
+}
+
+.btn-record-action {
+    flex: 1;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, var(--primary-color), #45a049);
+    border: 4px solid var(--brown-dark);
+    border-radius: 12px;
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--brown-dark);
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 80px;
+}
+
+.btn-record-action:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--brown-dark);
+}
+
+.btn-record-action:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--brown-dark);
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.btn-record-action span {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Animación de entrada del modal */
+@keyframes recordModalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .record-modal-content {
+        width: 95%;
+        padding: 1.2rem;
+        transform: scale(1);
+        /* Reset scale for mobile and use width instead */
+    }
+
+    .record-title {
+        font-size: clamp(1.1rem, 5vw, 1.4rem);
+    }
+
+    .letter-slot {
+        width: 45px;
+        height: 55px;
+    }
+
+    .letter-display {
+        font-size: 1.3rem;
+    }
+
+    .arrow-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .record-actions {
+        flex-direction: column;
+    }
+
+    .btn-record-action {
+        width: 100%;
+    }
+}
+
+/* Estadísticas del Jugador Destacadas (Modo Celebración) */
+.player-stats-highlight {
+    margin: 1.5rem auto;
+    padding: 1.2rem;
+    background: linear-gradient(to bottom, #ffb800 0%, #f8b500 50%, #ffb800 100%);
+    border: 6px solid var(--brown-dark);
+    border-radius: 20px;
+    box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.6), 0 6px 0 var(--brown-dark);
+    text-align: center;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 2;
+}
+
+.player-stats-highlight p {
+    margin: 0;
+    font-family: var(--font-pixel);
+    color: var(--brown-dark);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.player-stats-highlight .stat-value {
+    color: var(--brown-dark);
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.player-stats-highlight .ranking-pos {
+    margin-top: 0.5rem;
+    color: #ffffff;
+    font-size: 1rem;
+    text-shadow: 1px 1px 0 var(--brown-dark);
+}
+
+/* Botones Específicos de Registro */
+.btn-record-action.confirm-btn {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    font-family: var(--font-pixel);
+    font-size: 1rem;
+    justify-content: center;
+}
+
+.btn-record-action.confirm-btn:hover {
+    background: linear-gradient(135deg, #4da12a, #96d156);
+}
+
+.btn-record-action.cancel-btn {
+    background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+    font-family: var(--font-pixel);
+    font-size: 1rem;
+    justify-content: center;
+}
+
+.btn-record-action.cancel-btn:hover {
+    background: linear-gradient(135deg, #e64427, #e63b61);
+}
+
+.registration-buttons-container {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Estilos Arcade para el botón Cambiar nombre en Ajustes */
+#btn-change-name {
+    background: linear-gradient(135deg, var(--primary-color), #45a049);
+    border: 4px solid var(--brown-dark);
+    border-radius: 12px;
+    color: white;
+    font-family: var(--font-pixel);
+    cursor: pointer;
+    box-shadow: 0 6px 0 var(--brown-dark);
+    transition: all 0.1s ease;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-change-name:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 var(--brown-dark);
+}
+
+#btn-change-name:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--brown-dark);
+}
+
+#btn-change-name.hidden {
+    display: none;
+}
